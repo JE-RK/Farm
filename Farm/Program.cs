@@ -1,74 +1,6 @@
 ﻿using System;
 namespace Farm
 {
-    class Farm
-    {
-        List<Animal> animals = new List<Animal>();
-        public void AddToFarm(Animal obj)
-        {
-            animals.Add(obj);
-            Console.WriteLine("Животное добавлено!");
-        }
-
-        public void FarmSize()
-        {
-            Console.WriteLine( animals.Count);
-        }
-
-        public void FarmTotalWeight()
-        {
-            int totalWeight = 0;
-            foreach (var item in animals)
-            {
-                totalWeight += item.weight;
-                
-            }
-            Console.WriteLine(totalWeight);
-        }
-
-        public void AnimalSound(int index)
-        {
-            for (int i = 0; i < animals.Count; i++)
-            {
-                if (i + 1 == index)
-                {
-                    Console.WriteLine(animals[i].sound);
-                    break;
-                }
-            }
-        }
-    }
-    class Animal
-    {
-        public string sound;
-        public int weight;
-    }
-    class Cow : Animal
-    {
-        public Cow()
-        {
-            sound = "moo";
-            weight = 500;
-        }
-        
-    }
-    class Pig : Animal
-    {
-        public Pig()
-        {
-            sound = "oink";
-            weight = 100;
-        }
-    }
-    class Chicken : Animal
-    {
-        public Chicken()
-        {
-            sound = "cluck";
-            weight = 5;
-        }
-    }
-    
     class Program
     {
         
@@ -85,21 +17,21 @@ namespace Farm
                         break;
                     case "add cow":
                         Cow cow = new Cow();
-                        farm.AddToFarm(cow);
+                        farm.AddAnimal(cow);
                         break;
                     case "add pig":
                         Pig pig = new Pig();
-                        farm.AddToFarm(pig);
+                        farm.AddAnimal(pig);
                         break;
                     case "add chiken":
                         Chicken chicken = new Chicken();
-                        farm.AddToFarm(chicken);
+                        farm.AddAnimal(chicken);
                         break;
                     case "farm size":
-                        farm.FarmSize();
+                        farm.Size();
                         break;
                     case "farm total weight":
-                        farm.FarmTotalWeight();
+                        farm.TotalWeight();
                         break;
                     case "farm sound":
                         Console.WriteLine("Введите порядковый номер животного");
@@ -110,6 +42,7 @@ namespace Farm
                         Console.WriteLine("Неверная команда");
                         break;
                 } 
+                
             }
             
             
